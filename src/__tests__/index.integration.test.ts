@@ -3,7 +3,6 @@ import { getPinner as getPinnerNFTStorage } from "../services/nftstorage";
 
 import * as dotenv from "dotenv";
 import { KeySecretConfig, SimpleConfig } from "../config";
-import { Blob } from "nft.storage"; // Dependency on "nft.storage" here, but this just to get a moch Blob for Node
 
 /**
  * Integration tests requires a valid .env with API keys (we are not moching pinning services here)
@@ -17,8 +16,9 @@ describe("store blob", () => {
       apiKey: process.env.PINATA_API_KEY as string,
       secret: process.env.PINATA_SECRET_KEY as string,
     };
-    const blob = new Blob(["blobbable"]);
-    const result = await getPinnerPinata(config)(blob);
+    const result = await getPinnerPinata(config)(
+      Buffer.from([0x62, 0x75, 0x66, 0x66, 0x65, 0x72])
+    );
     expect(result.length).toBeGreaterThan(0); // some cid
   });
 
@@ -26,8 +26,9 @@ describe("store blob", () => {
     const config: SimpleConfig = {
       apiKey: process.env.NFT_STORAGE_API_KEY as string,
     };
-    const blob = new Blob([JSON.stringify({ k: "k" })]);
-    const result = await getPinnerNFTStorage(config)(blob);
+    const result = await getPinnerNFTStorage(config)(
+      Buffer.from([0x62, 0x75, 0x66, 0x66, 0x65, 0x72])
+    );
     expect(result.length).toBeGreaterThan(0); // some cid
   });
 });

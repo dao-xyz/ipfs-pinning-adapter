@@ -1,1 +1,1 @@
-export type Pinner = (blob: Blob) => Promise<string>;
+export type Pinner = (buffer: Buffer) => Promise<string>;

@@ -11,11 +11,11 @@ import { generateUUID } from "../utils";
 export const getPinner = (config: KeySecretConfig): Pinner => {
   const pinataSDK = require("@pinata/sdk");
   const pinata = pinataSDK(config.apiKey, config.secret);
-  return async (blob: Blob) => {
-    const arrayBuffer = await blob.arrayBuffer();
-    var view = new Uint8Array(arrayBuffer);
-    var newBuffer = Buffer.from(view);
-    const stream = Readable.from(newBuffer);
+  return async (buffer: Buffer) => {
+    /*   const arrayBuffer = await blob.arrayBuffer();
+          var view = new Uint8Array(arrayBuffer);
+          var newBuffer = Buffer.from(view); */
+    const stream = Readable.from(buffer);
     const fileName = new Date().getTime() + "_" + generateUUID(); // Filename is required by Pinata
     (stream as any).path = fileName;
     return pinata
