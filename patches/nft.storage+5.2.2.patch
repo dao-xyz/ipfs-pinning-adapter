@@ -1,0 +1,65 @@
+diff --git a/node_modules/nft.storage/dist/src/lib.cjs b/node_modules/nft.storage/dist/src/lib.cjs
+index 0c2d36b..3d47e4e 100644
+--- a/node_modules/nft.storage/dist/src/lib.cjs
++++ b/node_modules/nft.storage/dist/src/lib.cjs
+@@ -4,19 +4,19 @@ Object.defineProperty(exports, '__esModule', { value: true });
+ 
+ var streamingIterables = require('streaming-iterables');
+ var pRetry = require('p-retry');
+-var treewalk = require('carbites/treewalk');
+-var pack = require('ipfs-car/pack');
++var treewalk = require('carbites/cjs/lib/treewalk');
++var pack = require('ipfs-car/dist/cjs/pack');
+ require('multiformats/cid');
+ var token = require('./token.cjs');
+ var fetch = require('@web-std/fetch');
+ var formData = require('@web-std/form-data');
+ require('@web-std/blob');
+ var file = require('@web-std/file');
+-var fs = require('ipfs-car/blockstore/fs');
++var fs = require('ipfs-car/dist/cjs/blockstore/fs');
+ var gateway = require('./gateway.cjs');
+ var bsCarReader = require('./bs-car-reader.cjs');
+ 
+-function _interopDefaultLegacy (e) { return e && typeof e === 'object' && 'default' in e ? e : { 'default': e }; }
++function _interopDefaultLegacy(e) { return e && typeof e === 'object' && 'default' in e ? e : { 'default': e }; }
+ 
+ var pRetry__default = /*#__PURE__*/_interopDefaultLegacy(pRetry);
+ var fetch__default = /*#__PURE__*/_interopDefaultLegacy(fetch);
+diff --git a/node_modules/nft.storage/dist/src/token.cjs b/node_modules/nft.storage/dist/src/token.cjs
+index 090322d..a400c5f 100644
+--- a/node_modules/nft.storage/dist/src/token.cjs
++++ b/node_modules/nft.storage/dist/src/token.cjs
+@@ -2,7 +2,7 @@
+ 
+ Object.defineProperty(exports, '__esModule', { value: true });
+ 
+-var pack = require('ipfs-car/pack');
++var pack = require('ipfs-car/dist/cjs/pack');
+ require('multiformats/cid');
+ var Block = require('multiformats/block');
+ var sha2 = require('multiformats/hashes/sha2');
+@@ -11,7 +11,7 @@ require('@web-std/fetch');
+ var formData = require('@web-std/form-data');
+ require('@web-std/blob');
+ var file = require('@web-std/file');
+-var fs = require('ipfs-car/blockstore/fs');
++var fs = require('ipfs-car/dist/cjs/blockstore/fs');
+ var gateway = require('./gateway.cjs');
+ var bsCarReader = require('./bs-car-reader.cjs');
+ 
+@@ -341,10 +341,10 @@ const mapValueWith = (input, p, f, state, path) =>
+   p(input, state, path)
+     ? f(state, input, path)
+     : Array.isArray(input)
+-    ? mapArrayWith(input, p, f, state, path)
+-    : isObject(input)
+-    ? mapObjectWith(input, p, f, state, path)
+-    : [state, /** @type {any} */ (input)];
++      ? mapArrayWith(input, p, f, state, path)
++      : isObject(input)
++        ? mapObjectWith(input, p, f, state, path)
++        : [state, /** @type {any} */ (input)];
+ 
+ /**
+  * Just like `mapWith` except
