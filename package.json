@@ -1,6 +1,6 @@
 {
   "name": "@s2g/ipfs-pinning-adapter",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Framework for unifying different IPFS pinning services",
   "repository": "https://github.com/s2gprotocol/ipfs-service-adapter",
   "author": "s2g.network",
@@ -11,8 +11,8 @@
   "type": "module",
   "scripts": {
     "build": "yarn build:dev",
-    "build:dev": "tsc -p ./tsconfig.json",
-    "build:prod": "rimraf dist && tsc -p ./tsconfig.prod.json && cp package.json dist/ && cp LICENSE-MIT.txt dist/ ",
+    "build:dev": "tsc",
+    "build:prod": "rimraf dist && tsc && cp package.json dist/ && cp LICENSE-MIT.txt dist/ ",
     "test": "node ./node_modules/.bin/jest test  -c jest.config.unit.js --runInBand --forceExit",
     "test:integration": "node ./node_modules/.bin/jest test -c jest.config.integration.js --runInBand --forceExit",
     "pretest": "yarn build",
