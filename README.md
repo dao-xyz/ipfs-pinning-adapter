@@ -1,10 +1,9 @@
-# Borsh TS 
+# IPFS pinning services adapter
 [![Project license](https://img.shields.io/badge/license-Apache2.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
 [![Project license](https://img.shields.io/badge/license-MIT-blue.svg)](https://opensource.org/licenses/MIT)
 [![NPM version](https://img.shields.io/npm/v/@s2g/ipfs-pinning-adapter.svg?style=flat-square)](https://npmjs.com/@s2g/ipfs-pinning-adapter)
 [![Size on NPM](https://img.shields.io/bundlephobia/minzip/@s2g/ipfs-pinning-adapter.svg?style=flat-square)](https://npmjs.com/@s2g/ipfs-pinning-adapter)
 
-# IPFS pinning services adapter
 A library for a common interface towards different IPFS pinning services. 
 Currently supports: 
 * pinata.cloud
