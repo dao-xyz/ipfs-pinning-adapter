@@ -1,6 +1,6 @@
 {
   "name": "@s2g/ipfs-pinning-adapter",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "Framework for unifying different IPFS pinning services",
   "repository": "https://github.com/s2gprotocol/ipfs-service-adapter",
   "author": "s2g.network",
@@ -22,13 +22,6 @@
     "fix": "eslint src/**/*.ts --fix"
   },
   "dependencies": {},
-  "peerDependencies": {
-    "@pinata/sdk": "^1.1.23",
-    "ipfs-car": "^0.6.1",
-    "nft.storage": "5.2.2",
-    "patch-package": "^6.4.7",
-    "postinstall-postinstall": "^2.1.0"
-  },
   "devDependencies": {
     "@pinata/sdk": "^1.1.23",
     "@types/jest": "^27.0.2",
