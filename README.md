@@ -19,13 +19,11 @@ const pinPinata = getPinnerPinata({... CONFIG ...})
 
 const pinNftStorage = getPinnerNFTStorage({... CONFIG ...})
 
-
 const cid1 = await pinPinata(blob)
 const cid2 = await pinNftStorage(blob)
-
 ```
 
-Please see (integration tests)[./src/__tests__/index.integration.test.ts] for working examples.
+Please see [integration tests](src/__tests__/index.integration.test.ts) for working examples.
 
 ## Suggestions, problems?
 Please create a ticket
