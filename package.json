@@ -1,6 +1,6 @@
 {
   "name": "@s2g/ipfs-pinning-adapter",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "Framework for unifying different IPFS pinning services",
   "repository": "https://github.com/s2gprotocol/ipfs-service-adapter",
   "author": "s2g.network",
