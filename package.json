@@ -12,7 +12,7 @@
   "scripts": {
     "build": "yarn build:dev",
     "build:dev": "tsc",
-    "build:prod": "rimraf dist && tsc && cp package.json dist/ && cp LICENSE-MIT.txt dist/ ",
+    "build:prod": "rimraf dist && tsc && cp package.json dist/ && cp LICENSE dist/ ",
     "test": "node ./node_modules/.bin/jest test  -c jest.config.unit.js --runInBand --forceExit",
     "test:integration": "node ./node_modules/.bin/jest test -c jest.config.integration.js --runInBand --forceExit",
     "pretest": "yarn build",
