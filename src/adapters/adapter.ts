@@ -1,6 +1,6 @@
 import { SimpleConfig } from "../config";
 
-export abstract class Service<T extends SimpleConfig> {
+export abstract class IPFSAdapter<T extends SimpleConfig> {
   config: T;
   constructor(config: T) {
     this.config = config;

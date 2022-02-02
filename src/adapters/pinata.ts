@@ -1,9 +1,9 @@
 import { Readable } from "stream";
 import { KeySecretConfig } from "../config";
 import { generateUUID } from "../utils";
-import { Service } from "./service";
+import { IPFSAdapter } from "./adapter";
 
-export class PinataAdapter extends Service<KeySecretConfig> {
+export class PinataAdapter extends IPFSAdapter<KeySecretConfig> {
   client: any;
   constructor(config: KeySecretConfig) {
     super(config);

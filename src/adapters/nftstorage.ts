@@ -1,8 +1,8 @@
 import { NFTStorage } from "nft.storage";
 import { SimpleConfig } from "../config";
 import { Blob } from "nft.storage";
-import { Service } from "./service";
-export class NftStorageAdapter extends Service<SimpleConfig> {
+import { IPFSAdapter } from "./adapter";
+export class NftStorageAdapter extends IPFSAdapter<SimpleConfig> {
   client: NFTStorage;
   constructor(config: SimpleConfig) {
     super(config);
