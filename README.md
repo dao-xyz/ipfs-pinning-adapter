@@ -12,16 +12,17 @@ Currently supports:
 The goal is to make a Buffer friendly interface towards different services.
 ## 
 ```typescript
-import { getPinner as getPinnerPinata } from "../services/pinata";
-import { getPinner as getPinnerNFTStorage } from "../services/nftstorage";
+import { PinataAdapter } from "../adapters/pinata";
+import { NftStorageAdapter } from "../adapters/nftstorage";
+
 import { KeySecretConfig, SimpleConfig } from "../config";
 
-const pinPinata = getPinnerPinata({... CONFIG ...})
-const pinNftStorage = getPinnerNFTStorage({... CONFIG ...})
+const pinata = new PinataAdapter({... CONFIG ...})
+const nftStorage = new NftStorageAdapter({... CONFIG ...})
 
 const buffer = Buffer.from ( ... Some UIntArray ...)
-const cid1 = await pinPinata(buffer)
-const cid2 = await pinNftStorage(buffer)
+const cid1 = await pinata.pin(buffer)
+const cid2 = await nftStorage.pin(buffer)
 ```
 
 Please see [integration tests](src/__tests__/index.integration.test.ts) for working examples.
