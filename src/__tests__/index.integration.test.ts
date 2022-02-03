@@ -1,5 +1,5 @@
-import { PinataAdapter } from "../adapters/pinata";
-import { NftStorageAdapter } from "../adapters/nftstorage";
+import { PinataAdapter } from "../pinata";
+import { NftStorageAdapter } from "../nftstorage";
 
 import * as dotenv from "dotenv";
 import { KeySecretConfig, SimpleConfig } from "../config";

@@ -1,4 +1,4 @@
-import { SimpleConfig } from "../config";
+import { SimpleConfig } from "./config";
 
 export abstract class IPFSAdapter<T extends SimpleConfig> {
   config: T;

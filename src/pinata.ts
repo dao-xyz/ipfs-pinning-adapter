@@ -1,6 +1,6 @@
 import { Readable } from "stream";
-import { KeySecretConfig } from "../config";
-import { generateUUID } from "../utils";
+import { KeySecretConfig } from "./config";
+import { generateUUID } from "./utils";
 import { IPFSAdapter } from "./adapter";
 
 export class PinataAdapter extends IPFSAdapter<KeySecretConfig> {
