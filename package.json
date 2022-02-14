@@ -1,6 +1,6 @@
 {
   "name": "@s2g/ipfs-pinning-adapter",
-  "version": "0.1.7",
+  "version": "0.1.8",
   "readme": "README.md",
   "description": "Framework for unifying different IPFS pinning services",
   "homepage": "https://github.com/s2gprotocol/ipfs-pinning-adapter#readme",

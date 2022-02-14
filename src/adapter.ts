@@ -13,4 +13,8 @@ export abstract class IPFSAdapter<T extends SimpleConfig> {
   public pin(buffer: Buffer): Promise<string> {
     throw new Error("Not implemented");
   }
+
+  public verify(): Promise<boolean> {
+    throw new Error("Not implemented")
+  }
 }

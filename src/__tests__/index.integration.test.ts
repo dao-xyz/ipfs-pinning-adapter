@@ -10,8 +10,8 @@ import { KeySecretConfig, SimpleConfig } from "../config";
  */
 dotenv.config();
 
-describe("pin buffer", () => {
-  test("pinata", async () => {
+describe("pinata", () => {
+  test("pin", async () => {
     const config: KeySecretConfig = {
       apiKey: process.env.PINATA_API_KEY as string,
       secret: process.env.PINATA_SECRET_KEY as string,
@@ -21,8 +21,23 @@ describe("pin buffer", () => {
     );
     expect(result.length).toBeGreaterThan(0); // some cid
   });
+  test("verify", async () => {
+    const config: KeySecretConfig = {
+      apiKey: process.env.PINATA_API_KEY as string,
+      secret: process.env.PINATA_SECRET_KEY as string,
+    };
+    expect(await new PinataAdapter(config).verify()).toBeTruthy(); // some cid
 
-  test("nft.storage", async () => {
+    const config_bad: KeySecretConfig = {
+      apiKey: "abc" as string,
+      secret: "123" as string,
+    };
+    expect(await new PinataAdapter(config_bad).verify()).toBeFalsy(); // some cid
+  });
+});
+
+describe("nft.storage", () => {
+  test("pin", async () => {
     const config: SimpleConfig = {
       apiKey: process.env.NFT_STORAGE_API_KEY as string,
     };
@@ -30,5 +45,18 @@ describe("pin buffer", () => {
       Buffer.from([0x62, 0x75, 0x66, 0x66, 0x65, 0x72])
     );
     expect(result.length).toBeGreaterThan(0); // some cid
+  });
+
+  test("verify", async () => {
+    const config: SimpleConfig = {
+      apiKey: process.env.NFT_STORAGE_API_KEY as string,
+    };
+    expect(await new NftStorageAdapter(config).verify()).toBeTruthy(); // some cid
+
+    const config_bad: KeySecretConfig = {
+      apiKey: "abc" as string,
+      secret: "123" as string,
+    };
+    expect(await new NftStorageAdapter(config_bad).verify()).toBeFalsy(); // some cid
   });
 });

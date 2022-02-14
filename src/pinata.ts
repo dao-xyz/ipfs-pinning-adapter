@@ -21,4 +21,13 @@ export class PinataAdapter extends IPFSAdapter<KeySecretConfig> {
         }
       );
   }
+
+  public verify(): Promise<boolean> {
+    return this.client.testAuthentication().then(() => {
+      return true
+    }).catch(() => {
+      return false
+    });
+
+  }
 }
