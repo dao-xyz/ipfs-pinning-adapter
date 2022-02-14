@@ -16,8 +16,11 @@ export class NftStorageAdapter extends IPFSAdapter<SimpleConfig> {
   public verify(): Promise<boolean> {
     // Upload a dummy file
     const textEncoder = new TextEncoder();
+
+    // upload random blob
     const promise = this.client.storeBlob(new Blob([textEncoder.encode(generateUUID())]));
-    return promise.then(() => {
+    return promise.then(async (cid) => {
+      await this.client.delete(cid) // delete it also, we do not want to create unecessary data
       return true
     }).catch(() => {
       return false;
