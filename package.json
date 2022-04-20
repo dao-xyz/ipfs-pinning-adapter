@@ -31,10 +31,8 @@
     "test": "node ./node_modules/.bin/jest test  -c  ./jest.config.js --runInBand --forceExit",
     "test:unit": "node ./node_modules/.bin/jest test  -c  ./jest.config.unit.js --runInBand --forceExit",
     "test:integration": "node ./node_modules/.bin/jest test -c  ../jest.config.integration.js --runInBand --forceExit",
-    "lint": "eslint src/**/*.ts",
     "pretty": "prettier --write src/**/*.ts package.json",
-    "pretty:check": "yarn prettier --loglevel error --check  src/**/*.ts package.json",
-    "fix": "eslint src/**/*.ts --fix",
+    "pretty:check": "prettier --write src/**/*.ts package.json --check",
     "postinstall": "yarn patch-package"
   },
   "dependencies": {
