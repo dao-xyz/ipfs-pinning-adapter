@@ -1,3 +1,8 @@
+import axios from 'axios'
+
+const WAIT_DELAY = 500;
+const MAX_WAIT = 1000 * 30;
+
 export const generateUUID = (): string => {
     // Public Domain/MIT
     var d = new Date().getTime(); //Timestamp
@@ -20,3 +25,15 @@ export const generateUUID = (): string => {
         return (c === "x" ? r : (r & 0x3) | 0x8).toString(16);
     });
 };
+export const waitForCID = async (cid: string): Promise<boolean> => {
+    let startTime = new Date().getTime()
+    while (new Date().getTime() - startTime < MAX_WAIT) {
+        let resp = await axios.get("https://ipfs.io/ipfs/" + cid);
+        if (resp.status == 200) {
+            return true;
+        }
+        await new Promise(r => setTimeout(r, WAIT_DELAY));
+
+    }
+    return false;
+}

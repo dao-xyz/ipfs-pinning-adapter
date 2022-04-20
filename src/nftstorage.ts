@@ -2,17 +2,27 @@ import { NFTStorage } from "nft.storage";
 import { SimpleConfig } from "./config";
 import { Blob } from "nft.storage";
 import { IPFSAdapter } from "./adapter";
-import { generateUUID } from "./utils";
+import { generateUUID, waitForCID } from "./utils";
+
 export class NftStorageAdapter extends IPFSAdapter<SimpleConfig> {
   client: NFTStorage;
   constructor(config: SimpleConfig) {
     super(config);
     this.client = new NFTStorage({ token: config.apiKey });
   }
-  public pin(buffer: Buffer): Promise<string> {
+  public async pin(buffer: Buffer, waitUntilPinned: boolean = false): Promise<string | undefined> {
     let arraybuffer = Uint8Array.from(buffer).buffer;
-    return this.client.storeBlob(new Blob([arraybuffer]));
+    let cid = await this.client.storeBlob(new Blob([arraybuffer]));
+
+    if (waitUntilPinned) {
+      if (!await waitForCID(cid)) {
+        return undefined;
+      }
+    }
+    return cid
   }
+
+
   public verify(): Promise<boolean> {
     // Upload a dummy file
     const textEncoder = new TextEncoder();

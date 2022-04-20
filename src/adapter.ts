@@ -10,7 +10,7 @@ export abstract class IPFSAdapter<T extends SimpleConfig> {
    * @param buffer
    * returns CID
    */
-  public pin(buffer: Buffer): Promise<string> {
+  public pin(buffer: Buffer, waitUntilPinned: boolean = false): Promise<string | undefined> {
     throw new Error("Not implemented");
   }
 
