@@ -3,7 +3,6 @@ import { KeySecretConfig } from "./config";
 import { generateUUID, waitForCID } from "./utils";
 import { IPFSAdapter } from "./adapter";
 import axios from 'axios'
-let pinata = require("@pinata/sdk")
 
 
 
@@ -11,7 +10,7 @@ export class PinataAdapter extends IPFSAdapter<KeySecretConfig> {
   client: any;
   constructor(config: KeySecretConfig) {
     super(config);
-    this.client = pinata(config.apiKey, config.secret);
+    this.client = require("@pinata/sdk")(config.apiKey, config.secret);
   }
   public async pin(buffer: Buffer, waitUntilPinned: boolean = false): Promise<string | undefined> {
     const stream = Readable.from(buffer);

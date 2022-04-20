@@ -1,6 +1,6 @@
 {
   "name": "@dao-xyz/ipfs-pinning-adapter",
-  "version": "0.1.12",
+  "version": "0.1.13",
   "readme": "README.md",
   "description": "Framework for unifying different IPFS pinning services",
   "homepage": "https://github.com/dao-xyzprotocol/ipfs-pinning-adapter#readme",
